@@ -16,7 +16,6 @@ class Home extends Component {
     .orderBy('date', 'desc')
     .limit(3)
     .onSnapshot(docs => {
-      console.log(docs)
       let publicaciones = []
       docs.forEach(doc => {
         publicaciones.push({
@@ -38,7 +37,7 @@ class Home extends Component {
         <View style={styles.container1}>
           <Text>POSTS</Text>
         </View>
-        <View style={styles.container3}>
+        <View style={styles.container2}>
           <FlatList
             data={this.state.allPosts}
             keyExtractor={item => item.id.toString()}
@@ -56,11 +55,11 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center'
   },
+  
   container2:{
-    flex:3
-  },
-  container3:{
-    flex:5
+    flex:2,
+    justifyContent:'center',
+    alignItems:'center'
   },
   image:{
     height:300

@@ -67,7 +67,7 @@ class Post extends Component {
         {
            this.state.isMyLike ?
                 <TouchableOpacity onPress={()=> this.unlike()}>
-                    <FontAwesome name='heart' color='black' size={16} />
+                    <FontAwesome name='heart' color='red' size={16} />
                 </TouchableOpacity>
                 :
                 <TouchableOpacity onPress={()=> this.like()}>

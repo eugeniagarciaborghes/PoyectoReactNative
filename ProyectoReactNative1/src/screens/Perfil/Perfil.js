@@ -26,8 +26,6 @@ class Perfil extends Component {
     })
   }
 
-
-
   signOut(){
     auth.signOut()
     this.props.navigation.navigate('Login')
@@ -36,23 +34,27 @@ class Perfil extends Component {
   render(){
     return (
       <View>
-        <Text>Perfil</Text>
-        <TouchableOpacity 
-          onPress={() => this.signOut()}
-          style={styles.button}  
-        >
-          <Text>Cerrar sesión</Text>
-        </TouchableOpacity>
-      </View>
+      <Text>Perfil</Text>
+      <Text>aca van los posteos del usuario</Text>
+      <TouchableOpacity 
+        onPress={() => this.signOut()}
+        style={styles.button}  
+      >
+        <Text>Cerrar sesión</Text>
+      </TouchableOpacity>
+    </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
+  perfil:{
+      fontSize: 50,  
+  },
   button:{
-    padding:10,
-    borderColor:'red',
-    borderWidth: 1
+    borderRadius: 2,
+    padding:3,
+    backgroundColor: 'red',
   }
 })
 
