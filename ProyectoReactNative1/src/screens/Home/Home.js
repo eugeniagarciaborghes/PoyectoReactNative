@@ -36,7 +36,7 @@ class Home extends Component {
     return (
       <>
         <View style={styles.container1}>
-          <Text>Home</Text>
+          <Text>POSTS</Text>
         </View>
         <View style={styles.container3}>
           <FlatList
