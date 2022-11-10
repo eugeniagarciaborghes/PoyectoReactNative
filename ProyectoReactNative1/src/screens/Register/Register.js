@@ -9,7 +9,8 @@ class Register extends Component {
             username:'',
             email:'',
             password:'',
-            biografia:''
+            biografia:'',
+            mensaje:''
         }
     }
 
@@ -20,15 +21,24 @@ class Register extends Component {
                 db.collection('users').add({
                     email:email,
                     username:username,
+                    biografia:biografia,
                     createdAt:Date.now()
                 })
             )
         })
         .then(resp => this.props.navigation.navigate('Home'))
-        .catch(err => console.log(err))      
+     .catch(err => console.log(this.setState({mensaje: err.message}))) 
+    } else if (username.length <= 4){
+       this.setState({mensaje:'El username debe ser mayor a cuatro caracteres'})     
+    } else if (!email.includes('@')){
+        this.setState({mensaje:'El email...'}) 
+    } else if (password.length <= 5){
+        this.setState({mensaje:'La contraseña'}) 
+    } else if (biografia.length <= 0){
+        this.setState({mensaje:'La biografia'}) 
     }
 
-  render() {
+  render(){
     return (
     <View style={styles.container}>
         <View>
@@ -55,6 +65,7 @@ class Register extends Component {
                 value={this.state.password}
                 secureTextEntry={true}
             />
+            <Text>{this.state.mensaje}</Text>
             <TextInput
                 style={styles.input}
                 placeholder='Escribe tu biografía'
