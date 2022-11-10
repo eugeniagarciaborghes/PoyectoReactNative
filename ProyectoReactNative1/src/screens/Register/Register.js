@@ -14,7 +14,8 @@ class Register extends Component {
         }
     }
 
-    registrarUsuario(username, email, password){
+    registrarUsuario(username, email, password, biografia){
+        if(username >=4 && email.includes('@') && password.length >= 5 && biografia.length >= 0){
         auth.createUserWithEmailAndPassword(email, password)
         .then(()=> {
             return(
@@ -26,18 +27,19 @@ class Register extends Component {
                 })
             )
         })
+
         .then(resp => this.props.navigation.navigate('Home'))
      .catch(err => console.log(this.setState({mensaje: err.message}))) 
     } else if (username.length <= 4){
        this.setState({mensaje:'El username debe ser mayor a cuatro caracteres'})     
     } else if (!email.includes('@')){
-        this.setState({mensaje:'El email...'}) 
+        this.setState({mensaje:'El email no se escribió correctamente'}) 
     } else if (password.length <= 5){
-        this.setState({mensaje:'La contraseña'}) 
+        this.setState({mensaje:'La contraseña deber ser mayor a cuatro caracteres'}) 
     } else if (biografia.length <= 0){
-        this.setState({mensaje:'La biografia'}) 
+        this.setState({mensaje:'Escribe una biografia'}) 
     }
-
+}
   render(){
     return (
     <View style={styles.container}>
@@ -65,7 +67,6 @@ class Register extends Component {
                 value={this.state.password}
                 secureTextEntry={true}
             />
-            <Text>{this.state.mensaje}</Text>
             <TextInput
                 style={styles.input}
                 placeholder='Escribe tu biografía'
@@ -74,8 +75,9 @@ class Register extends Component {
                 value={this.state.biografia}
                 secureTextEntry={false}
             />
+            <Text>{this.state.mensaje}</Text>
             <View>
-                <TouchableOpacity onPress={()=> this.registrarUsuario(this.state.username, this.state.email, this.state.password)}>
+                <TouchableOpacity onPress={()=> this.registrarUsuario(this.state.username, this.state.email, this.state.password, this.state.biografia)}>
                     <Text>Registrarme</Text>
                 </TouchableOpacity>
             </View>
