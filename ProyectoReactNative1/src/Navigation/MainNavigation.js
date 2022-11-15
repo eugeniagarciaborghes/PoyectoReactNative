@@ -4,6 +4,7 @@ import { createNativeStackNavigator, NativeStackView } from '@react-navigation/n
 import TabNavigation from './TabNavigation';
 import LoginScreen from '../screens/Login/LoginScreen';
 import Register from '../screens/Register/Register';
+import Comments from '../screens/Comments/Comments';
 
 const Stack = createNativeStackNavigator()
 
@@ -32,6 +33,10 @@ function MainNavigation() {
           headerShown:false
          }}
         />
+        <Stack.Screen
+          name='Comments'
+          component={Comments}
+        />  
         </Stack.Navigator>
   </NavigationContainer>
   )
