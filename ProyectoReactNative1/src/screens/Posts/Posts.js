@@ -1,6 +1,7 @@
 import { Text, View, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
 import React, { Component } from 'react'
 import { db, auth } from '../../firebase/config'
+import Camara from '../../components/Camera/Camera'
 
 class Posts extends Component {
     constructor(){
@@ -27,7 +28,17 @@ class Posts extends Component {
 
     render() {
         return (
-        <View>
+        <View style = {styles.container}>
+            {
+                this.state.mostrarCam ?
+                <Camara
+                /> : 
+                <View>
+
+                    
+                </View>
+            }
+            
             <Text>Crea tu posteo</Text>
             <TextInput
                 keyboardType='default'
@@ -47,6 +58,10 @@ class Posts extends Component {
 }
 
 const styles = StyleSheet.create({
+    container {
+        flex : 1
+
+    },
     input:{
         borderWidth:1,
         height:48
