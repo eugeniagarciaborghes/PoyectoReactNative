@@ -7,7 +7,9 @@ class Posts extends Component {
     constructor(){
         super()
         this.state = {
-            descripcion:''          
+            descripcion:'',
+            mostrarCam : true, 
+            fotoUrl : ''
         }
     }
 
@@ -17,12 +19,20 @@ class Posts extends Component {
             date: Date.now(),
             descripcion: text,
             likes:[],
-            comments:[]
+            comments:[],
+            foto: this.state.fotoUrl
         })
         .then(()=>{
             this.setState({descripcion:''})
         })
         .catch(err => console.log(err))
+    }
+
+    cuandoSubaLaFoto (url) {
+        this.setState({
+            mostrarCam : false,
+            fotoUrl: url
+        })
     }
 
 
@@ -32,10 +42,11 @@ class Posts extends Component {
             {
                 this.state.mostrarCam ?
                 <Camara
+                cuandoSubaLaFoto = {(url)=> this.cuandoSubaLaFoto(url)}
                 /> : 
                 <View>
 
-                    
+
                 </View>
             }
             
@@ -58,8 +69,8 @@ class Posts extends Component {
 }
 
 const styles = StyleSheet.create({
-    container {
-        flex : 1
+    container:{
+        flex : 1,
 
     },
     input:{
