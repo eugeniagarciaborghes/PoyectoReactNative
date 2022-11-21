@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import React, {Component} from 'react'
 import { auth, db } from '../../firebase/config'
+import Post from '../../components/Post/Post'
 
 class Perfil extends Component {
   constructor(props){
