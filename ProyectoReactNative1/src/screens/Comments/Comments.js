@@ -60,14 +60,13 @@ import {
             </View>
               }
             />
-            {/* AQUI CREEN UNA FLATLIST QUE RENDERICE LOS COMENTARIOS */}
           </View>
           <View>
             <TextInput
               onChangeText={text => this.setState({nuevoComentario: text})}
               style = {styles.input}
               keyboardType='default'
-              placeholder='Anhadi tu comentario'
+              placeholder='Agregá tu comentario'
               value={this.state.nuevoComentario}
             />
             <TouchableOpacity onPress={()=> this.anhadirComentario(this.state.id, this.state.nuevoComentario)}>

@@ -16,6 +16,7 @@ class Posts extends Component {
     enviarPosteo(text){
         db.collection('posts').add({
             owner:auth.currentUser.email,
+            username: username,
             date: Date.now(),
             descripcion: text,
             likes:[],

@@ -61,7 +61,8 @@ class Post extends Component {
   render() {
     return (
       <View>
-        <Text>{this.props.data.description}</Text>
+        <Text>{this.props.data.owner}</Text>
+        <Text>{this.props.data.descripcion}</Text>
         <View>
         <Text>{this.state.likesCount}</Text>  
         {
