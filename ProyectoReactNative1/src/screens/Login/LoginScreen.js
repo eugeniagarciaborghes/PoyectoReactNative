@@ -31,8 +31,8 @@ class LoginScreen extends Component {
     return (
       <View style={styles.container}>
         <View>
-
-          <Text>Login</Text>
+          <Text style={styles.titulo}>INSTACLICK</Text>
+          <Text style={styles.titulo2}>LOGIN</Text>
           <TextInput
               style={styles.input}
               keyboardType='email-address'
@@ -50,16 +50,16 @@ class LoginScreen extends Component {
           />
           <View>
               <TouchableOpacity onPress={()=> this.loguear(this.state.email, this.state.password)}>
-                  <Text>Log In</Text>
+                  <Text style={styles.buttons}>Login</Text>
               </TouchableOpacity>
           </View>
 
           <View>
             <Text>
-              Aun no tienes una cuenta
+              Aún no tienes una cuenta?
             </Text>
             <TouchableOpacity onPress={()=> this.props.navigation.navigate('Register')}>
-              <Text>Registrate</Text>
+              <Text style={styles.buttons}>Registrate</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -72,10 +72,32 @@ const styles = StyleSheet.create({
   container:{
     flex:1,
     justifyContent:'center',
-    paddingHorizontal:24
+    paddingHorizontal:250,
+    backgroundColor: 'lightgrey',
+ 
+  },
+  titulo:{
+    fontStyle:'italic',
+    fontWeight: 500,
+    fontSize: 30,
+    textAlign: 'center'
+  },
+  titulo2:{
+    fontStyle:'italic',
+    fontWeight: 500,
+    fontSize: 20,
+    textAlign: 'center',
+  },
+  buttons:{
+    textAlign: 'center',
+    borderRadius:6,
+    borderWidth:4,
+    padding:8,
+    backgroundColor: 'grey',
   },
     input:{
-        borderWidth:1
+        borderWidth:1,
+        padding:8,
     }
 })
 
