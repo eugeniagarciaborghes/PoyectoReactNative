@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { db, auth } from '../../firebase/config'
 import Camara from '../../components/Camera/Camera'
 
+
 class Posts extends Component {
     
     constructor(props){
@@ -13,7 +14,6 @@ class Posts extends Component {
             url : ''
         }
     }
-    //al
     enviarPosteo(text){
         console.log("enviarposteo");
         db.collection('posts').add({
@@ -27,7 +27,6 @@ class Posts extends Component {
         .then(()=>{
             console.log("posteado")
             this.setState({descripcion:''},
-            //aliendro
             () => this.props.navigation.navigate('Home')
             )
         })
@@ -49,7 +48,6 @@ class Posts extends Component {
             {
                 this.state.mostrarCam ?
                 <Camara
-                    //aliendro
                     cuandoSubaLaFoto = {url=> this.cuandoSubaLaFoto(url)}
                 /> : 
                 <View>

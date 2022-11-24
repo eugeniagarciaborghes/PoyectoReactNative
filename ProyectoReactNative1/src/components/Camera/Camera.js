@@ -4,8 +4,8 @@ import {Camera } from "expo-camera"
 import { storage } from '../../firebase/config';
 
 class Camara extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.metodosDeCamara = null,
         this.state = {
             permiso:false,
@@ -20,7 +20,6 @@ class Camara extends Component {
         .then(() => {
             this.setState({
                 mostrarCam : true,
-                //aliendro
                 permiso : true
             })
         })
@@ -32,7 +31,7 @@ class Camara extends Component {
         console.log("sacar foto");
         this.metodosDeCamara.takePictureAsync()
         .then(photo => this.setState({
-            url: photo.uri,
+            url: photo.uri,                                                
             mostrarCam:false
         }))
         .catch(error => console.log(error))
@@ -44,7 +43,7 @@ class Camara extends Component {
         .then(imagenBinario => imagenBinario.blob())
         .then(image =>{
             let ref = storage.ref(`fotos/${Date.now()}.jpg`)
-            ref.put(image)
+            ref.put(image)                                                       //a
             .then (() => {
                 ref.getDownloadURL ()
                 .then((url) => this.props.cuandoSubaLaFoto(url) )
@@ -61,7 +60,6 @@ class Camara extends Component {
     descartarFoto(){
         this.setState({
             url:'',
-            //aliendro
             mostrarCam : true
         })
     }
@@ -87,7 +85,7 @@ class Camara extends Component {
                     : this.state.mostrarCam === false && this.state.url != '' ?
                     <View>
                         <Image
-                            source={{url: this.state.url}}
+                            source={{uri: this.state.url}}
                             style= {styles.image}
                             resizeMode = 'cover'
                         />
