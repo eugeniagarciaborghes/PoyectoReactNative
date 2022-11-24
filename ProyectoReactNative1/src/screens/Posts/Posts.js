@@ -4,6 +4,7 @@ import { db, auth } from '../../firebase/config'
 import Camara from '../../components/Camera/Camera'
 
 class Posts extends Component {
+    
     constructor(){
         super()
         this.state = {
@@ -31,8 +32,9 @@ class Posts extends Component {
 
     cuandoSubaLaFoto (url) {
         this.setState({
-            mostrarCam : false,
-            fotoUrl: url
+            fotoUrl: url,
+            mostrarCam : false
+            
         })
     }
 

@@ -6,6 +6,7 @@ import { storage } from '../../firebase/config';
 class Camara extends Component {
     constructor(){
         super()
+        this.metodosDeCamara = null,
         this.state = {
             permiso:false,
             mostrarCam: false,
@@ -35,7 +36,7 @@ class Camara extends Component {
     }
 
     usarImagen(url){
-        fetch(url)
+        fetch(this.state.fotoUri)
         .then(imagenBinario => imagenBinario.blob())
         .then(image =>{
             let ref = storage.ref(`fotos/${Date.now()}.jpg`)
@@ -69,7 +70,7 @@ class Camara extends Component {
                         <Camara
                             style = {styles.camarabody}
                             type = {Camera.Constants.Type.back}
-                            ref={metodosDelComponente => this.metodosDeCamara = metodosDelComponente}
+                            ref={metodosDeCamara => this.metodosDeCamara = metodosDeCamara}
                         />
                         <TouchableOpacity onPress={ () => this.sacarFoto()}>
                             <Text>Sacar Foto</Text>
@@ -88,7 +89,7 @@ class Camara extends Component {
                                 Usar Imagen
                             </Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={()=> this.rechazarImagen()}>
+                        <TouchableOpacity onPress={()=> this.descartarFoto()}>
                             <Text>
                                 Rechazar
                             </Text>
