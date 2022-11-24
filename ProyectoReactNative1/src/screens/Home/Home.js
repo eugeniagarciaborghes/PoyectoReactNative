@@ -52,13 +52,14 @@ class Home extends Component {
 const styles = StyleSheet.create({
   container1:{
     flex:1,
-    justifyContent:'center',
-    alignItems:'center'
+    alignItems:'center',
+    justifyContent:'space-evenly',
   },
   
   container2:{
     flex:2,
-    justifyContent:'center',
+    flexDirection: 'column',
+    justifyContent:'space-evenly',
     alignItems:'center'
   },
   image:{

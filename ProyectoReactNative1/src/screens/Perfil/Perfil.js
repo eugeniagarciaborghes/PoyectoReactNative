@@ -34,14 +34,11 @@ class Perfil extends Component {
   
   render(){
     return (
-      <View>
+      <View style={styles.container}>
       <Text>Perfil</Text>
       <Text>aca van los posteos del usuario</Text>
-      <TouchableOpacity 
-        onPress={() => this.signOut()}
-        style={styles.button}  
-      >
-        <Text>Cerrar sesión</Text>
+      <TouchableOpacity onPress={() => this.signOut()}>
+        <Text style={styles.buttons}>Cerrar sesión</Text>
       </TouchableOpacity>
     </View>
     )
@@ -52,11 +49,20 @@ const styles = StyleSheet.create({
   perfil:{
       fontSize: 50,  
   },
-  button:{
-    borderRadius: 2,
-    padding:3,
-    backgroundColor: 'red',
-  }
+  container:{
+    flex:1,
+    justifyContent:'center',
+    paddingHorizontal:300,
+    backgroundColor: 'lightgrey',
+  },
+  buttons:{
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius:6,
+    borderWidth:2,
+    padding:8,
+    backgroundColor: 'grey',
+  },
 })
 
 

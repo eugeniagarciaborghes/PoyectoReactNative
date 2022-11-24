@@ -74,7 +74,6 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     paddingHorizontal:250,
     backgroundColor: 'lightgrey',
- 
   },
   titulo:{
     fontStyle:'italic',
@@ -95,10 +94,10 @@ const styles = StyleSheet.create({
     padding:8,
     backgroundColor: 'grey',
   },
-    input:{
-        borderWidth:1,
-        padding:8,
-    }
+  input:{
+    borderWidth:1,
+    padding:8,
+  }
 })
 
 export default LoginScreen

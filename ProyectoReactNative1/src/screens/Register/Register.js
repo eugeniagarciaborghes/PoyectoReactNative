@@ -44,7 +44,7 @@ class Register extends Component {
     return (
     <View style={styles.container}>
         <View>
-            <Text>Formulario de registro</Text>
+            <Text style={styles.titulo2}>Formulario de registro</Text>
             <TextInput
                 style={styles.input}
                 placeholder='Escribe tu nombre de usuario'
@@ -75,16 +75,16 @@ class Register extends Component {
                 value={this.state.biografia}
                 secureTextEntry={false}
             />
-            <Text>{this.state.mensaje}</Text>
+            <Text style={styles.error}>{this.state.mensaje}</Text>
             <View>
                 <TouchableOpacity onPress={()=> this.registrarUsuario(this.state.username, this.state.email, this.state.password, this.state.biografia)}>
-                    <Text>Registrarme</Text>
+                    <Text style={styles.buttons}>Registrarme</Text>
                 </TouchableOpacity>
             </View>
             <View>
                 <Text>Ya tienes un cuenta?</Text>
                 <TouchableOpacity onPress={ () => this.props.navigation.navigate('Login')}>
-                    <Text>Logueate</Text>
+                    <Text style={styles.buttons}>Logueate</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -95,17 +95,43 @@ class Register extends Component {
 
 const styles = StyleSheet.create({
     container:{
-      flex:1,
-      justifyContent:'center',
-      paddingHorizontal:24
-    },
-    input:{
-        borderWidth:1
-    },
-    containerRedirect:{
-        marginTop: 32
-    }
-  })
+        flex:1,
+        justifyContent:'center',
+        paddingHorizontal:250,
+        backgroundColor: 'lightgrey',
+     
+      },
+      titulo:{
+        fontStyle:'italic',
+        fontWeight: 500,
+        fontSize: 30,
+        textAlign: 'center'
+      },
+      titulo2:{
+        fontStyle:'italic',
+        fontWeight: 500,
+        fontSize: 20,
+        textAlign: 'center',
+      },
+      buttons:{
+        textAlign: 'center',
+        borderRadius:6,
+        borderWidth:4,
+        padding:8,
+        backgroundColor: 'grey',
+      },
+      input:{
+        borderWidth:1,
+        padding:8,
+      },
+      error:{
+        textAlign: 'center',
+        borderRadius:0,
+        borderWidth:0,
+        padding:0,
+        backgroundColor: 'red',
+      },
+   })
   
 
 export default Register
