@@ -19,7 +19,9 @@ class Camara extends Component {
         Camera.requestCameraPermissionsAsync()
         .then(() => {
             this.setState({
-                mostrarCam : true
+                mostrarCam : true,
+                //aliendro
+                permiso : true
             })
         })
         .catch(err => console.log(err))
@@ -27,6 +29,7 @@ class Camara extends Component {
     }
 
     sacarFoto(){
+        console.log("sacar foto");
         this.metodosDeCamara.takePictureAsync()
         .then(photo => this.setState({
             url: photo.uri,
@@ -36,6 +39,7 @@ class Camara extends Component {
     }
 
     usarImagen(){
+        console.log("usar foto");
         fetch(this.state.url)
         .then(imagenBinario => imagenBinario.blob())
         .then(image =>{
@@ -57,6 +61,8 @@ class Camara extends Component {
     descartarFoto(){
         this.setState({
             url:'',
+            //aliendro
+            mostrarCam : true
         })
     }
 
@@ -76,26 +82,32 @@ class Camara extends Component {
                             <Text>Sacar Foto</Text>
 
                         </TouchableOpacity>
-                    </>
+                    </> 
+
+                    //aliendro
                     
                     : this.state.mostrarCam === false && this.state.url != '' ?
                     <View>
                         <Image
                             source={{url: this.state.url}}
                             style= {styles.image}
+                            resizeMode = 'cover'
                         />
-                        <TouchableOpacity onPress={()=> this.usarImagen()}>
+                        <TouchableOpacity 
+                            onPress={()=> this.usarImagen()}>
                             <Text>
                                 Usar Imagen
                             </Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={()=> this.descartarFoto()}>
+                        <TouchableOpacity 
+                            onPress={()=> this.descartarFoto()}>
                             <Text>
                                 Rechazar
                             </Text>
                         </TouchableOpacity>
-                    </View>
-                    : <Text>
+                    </View> :
+                    
+                    <Text>
                         No tenemos permiso para mostrar la foto
                     </Text>
 

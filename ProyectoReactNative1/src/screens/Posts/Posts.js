@@ -16,8 +16,9 @@ class Posts extends Component {
 
     enviarPosteo(text){
         db.collection('posts').add({
-            owner:auth.currentUser.email,
-            username: username,
+            owner: auth.currentUser.email,
+            //aliendro
+            //username: username,
             date: Date.now(),
             descripcion: text,
             likes:[],
@@ -25,7 +26,11 @@ class Posts extends Component {
             url: this.state.url
         })
         .then(()=>{
-            this.setState({descripcion:''})
+            console.log("posteado")
+            this.setState({descripcion:''},
+            //aliendro
+            () => this.props.navigation.navigate('Home')
+            )
         })
         .catch(err => console.log(err))
     }
@@ -45,7 +50,8 @@ class Posts extends Component {
             {
                 this.state.mostrarCam ?
                 <Camara
-                cuandoSubaLaFoto = {(url)=> this.cuandoSubaLaFoto(url)}
+                //aliendro
+                cuandoSubaLaFoto = {url=> this.cuandoSubaLaFoto(url)}
                 /> : 
                 <View>
 
