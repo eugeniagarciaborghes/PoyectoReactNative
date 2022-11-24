@@ -4,8 +4,8 @@ import {Camera } from "expo-camera"
 import { storage } from '../../firebase/config';
 
 class Camara extends Component {
-    constructor(props){
-        super(props)
+    constructor(){
+        super()
         this.metodosDeCamara = null,
         this.state = {
             permiso:false,
@@ -70,7 +70,7 @@ class Camara extends Component {
         return(
             
             <View style = {styles.container}>
-                {
+                {       
                     this.state.mostrarCam ?
                     <>
                         <Camera
@@ -83,8 +83,6 @@ class Camara extends Component {
 
                         </TouchableOpacity>
                     </> 
-
-                    //aliendro
                     
                     : this.state.mostrarCam === false && this.state.url != '' ?
                     <View>

@@ -13,12 +13,11 @@ class Posts extends Component {
             url : ''
         }
     }
-//a
+    //al
     enviarPosteo(text){
+        console.log("enviarposteo");
         db.collection('posts').add({
             owner: auth.currentUser.email,
-            //aliendro
-            //username: username,
             date: Date.now(),
             descripcion: text,
             likes:[],
@@ -38,7 +37,7 @@ class Posts extends Component {
     cuandoSubaLaFoto (url) {
         this.setState({
             url: url,
-            //mostrarCam : false
+            mostrarCam : false
             
         })
     }
@@ -50,8 +49,8 @@ class Posts extends Component {
             {
                 this.state.mostrarCam ?
                 <Camara
-                //aliendro
-                cuandoSubaLaFoto = {url=> this.cuandoSubaLaFoto(url)}
+                    //aliendro
+                    cuandoSubaLaFoto = {url=> this.cuandoSubaLaFoto(url)}
                 /> : 
                 <View>
 

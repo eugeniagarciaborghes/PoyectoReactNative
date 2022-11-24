@@ -62,8 +62,9 @@ class Post extends Component {
     return (
       <View>
         <Text>{this.props.data.owner}</Text>
+        
         <Text>{this.props.data.descripcion}</Text>
-        <View>
+      <View>
         <Text>{this.state.likesCount}</Text>  
         {
            this.state.isMyLike ?
