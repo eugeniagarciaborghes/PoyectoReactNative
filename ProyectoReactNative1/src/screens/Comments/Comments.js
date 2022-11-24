@@ -49,13 +49,13 @@ import {
       console.log(this.props)
       return (
         <View>
-          <Text>Comments</Text>
-          <View>
+          <Text style={styles.titulo2}>COMENTARIOS DEL POSTEO</Text>
+          <View style={styles.comentarios}>
             <FlatList
             data={this.state.data.comments}
             keyExtractor={item => item.createdAt.toString()}
             renderItem={({item}) => <View>
-              <Text>{item.owner}</Text>
+              <Text style={styles.owner}>{item.owner} comentó:</Text>
               <Text>{item.comment}</Text>
             </View>
               }
@@ -70,7 +70,7 @@ import {
               value={this.state.nuevoComentario}
             />
             <TouchableOpacity onPress={()=> this.anhadirComentario(this.state.id, this.state.nuevoComentario)}>
-              <Text>Enviar comentario</Text>
+              <Text style={styles.buttons}>Enviar comentario</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -80,8 +80,37 @@ import {
   
   const styles = StyleSheet.create({
     input: {
-      borderWidth:1,
-      height:32
+      borderWidth:2,
+      height:40,
+      borderRadius:6,
+      padding:8,
+      textAlign:'center',
+      marginLeft: '35%',
+      marginRight: '35%'
+    },
+    buttons:{
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius:6,
+      borderWidth:2,
+      padding:8,
+      backgroundColor: 'grey',
+      textAlign:'center',
+      marginLeft: '40%',
+      marginRight: '40%'
+    },
+    titulo2:{
+      fontStyle:'italic',
+      fontWeight: 500,
+      fontSize: 20,
+      textAlign: 'center',
+    },
+    comentarios:{
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    owner:{
+      fontWeight: 100 ,
     }
   })
   

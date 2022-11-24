@@ -1,4 +1,4 @@
-import { Text, View, TouchableOpacity } from 'react-native'
+import { Text, View, TouchableOpacity, StyleSheet} from 'react-native'
 import React, { Component } from 'react'
 import {FontAwesome} from '@expo/vector-icons'
 import {db, auth} from '../../firebase/config'
@@ -61,11 +61,12 @@ class Post extends Component {
   render() {
     return (
       <View>
-        <Text>{this.props.data.owner}</Text>
+        <Text style={styles.owner}>{this.props.data.owner}</Text>
         
         <Text>{this.props.data.descripcion}</Text>
-      <View>
-        <Text>{this.state.likesCount}</Text>  
+        <Text>cantidad de comentarios: {this.state.commentCount}</Text>
+      <View style={styles.likes}>
+        <Text>cantidad de likes: {this.state.likesCount}</Text>  
         {
            this.state.isMyLike ?
                 <TouchableOpacity onPress={()=> this.unlike()}>
@@ -75,7 +76,6 @@ class Post extends Component {
                 <TouchableOpacity onPress={()=> this.like()}>
                     <FontAwesome name='heart-o' color='red' size={16} />
                 </TouchableOpacity>
-
         }
         </View>
         <View>
@@ -83,7 +83,7 @@ class Post extends Component {
             'Comments',
             {id:this.props.id}
             )}>
-            <Text>Agregar comentario</Text>
+            <Text style={styles.buttons}>Agregar comentario</Text>
           </TouchableOpacity>
         </View>
         
@@ -91,5 +91,18 @@ class Post extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  owner:{
+    fontWeight: 100 ,
+  },
+  buttons:{
+    borderRadius:6,
+    borderWidth:2,
+    padding:2,
+    backgroundColor: 'grey',
+    textAlign:'center',
+  },
+})
 
 export default Post

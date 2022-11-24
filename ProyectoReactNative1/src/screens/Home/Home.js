@@ -35,7 +35,7 @@ class Home extends Component {
     return (
       <>
         <View style={styles.container1}>
-          <Text>POSTS</Text>
+          <Text style={styles.titulo}>POSTS</Text>
         </View>
         <View style={styles.container2}>
           <FlatList
@@ -64,7 +64,13 @@ const styles = StyleSheet.create({
   },
   image:{
     height:300
-  }
+  },
+  titulo:{
+    fontStyle:'italic',
+    fontWeight: 500,
+    fontSize: 20,
+    textAlign: 'center',
+  },
 })
 
 export default Home
