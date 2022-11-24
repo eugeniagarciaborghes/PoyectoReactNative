@@ -13,7 +13,7 @@ class Posts extends Component {
             url : ''
         }
     }
-
+//a
     enviarPosteo(text){
         db.collection('posts').add({
             owner: auth.currentUser.email,
