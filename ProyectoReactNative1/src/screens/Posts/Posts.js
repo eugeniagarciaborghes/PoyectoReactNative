@@ -5,12 +5,12 @@ import Camara from '../../components/Camera/Camera'
 
 class Posts extends Component {
     
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             descripcion:'',
             mostrarCam : true, 
-            fotoUrl : ''
+            url : ''
         }
     }
 
@@ -22,7 +22,7 @@ class Posts extends Component {
             descripcion: text,
             likes:[],
             comments:[],
-            foto: this.state.fotoUrl
+            url: this.state.url
         })
         .then(()=>{
             this.setState({descripcion:''})
@@ -32,8 +32,8 @@ class Posts extends Component {
 
     cuandoSubaLaFoto (url) {
         this.setState({
-            fotoUrl: url,
-            mostrarCam : false
+            url: url,
+            //mostrarCam : false
             
         })
     }

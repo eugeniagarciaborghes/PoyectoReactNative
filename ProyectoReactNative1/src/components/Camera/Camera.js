@@ -4,13 +4,13 @@ import {Camera } from "expo-camera"
 import { storage } from '../../firebase/config';
 
 class Camara extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.metodosDeCamara = null,
         this.state = {
             permiso:false,
             mostrarCam: false,
-            fotoUri:'',
+            url:'',
             
         }
     }
@@ -28,15 +28,15 @@ class Camara extends Component {
 
     sacarFoto(){
         this.metodosDeCamara.takePictureAsync()
-        .then(foto => this.setState({
-            fotoUri: foto.uri,
+        .then(photo => this.setState({
+            url: photo.uri,
             mostrarCam:false
         }))
         .catch(error => console.log(error))
     }
 
-    usarImagen(url){
-        fetch(this.state.fotoUri)
+    usarImagen(){
+        fetch(this.state.url)
         .then(imagenBinario => imagenBinario.blob())
         .then(image =>{
             let ref = storage.ref(`fotos/${Date.now()}.jpg`)
@@ -56,7 +56,7 @@ class Camara extends Component {
 
     descartarFoto(){
         this.setState({
-            fotoUrl:'',
+            url:'',
         })
     }
 
@@ -67,7 +67,7 @@ class Camara extends Component {
                 {
                     this.state.mostrarCam ?
                     <>
-                        <Camara
+                        <Camera
                             style = {styles.camarabody}
                             type = {Camera.Constants.Type.back}
                             ref={metodosDeCamara => this.metodosDeCamara = metodosDeCamara}
@@ -78,10 +78,10 @@ class Camara extends Component {
                         </TouchableOpacity>
                     </>
                     
-                    : this.state.mostrarCam === false && this.state.fotoUri != '' ?
+                    : this.state.mostrarCam === false && this.state.url != '' ?
                     <View>
                         <Image
-                            source={{uri: this.state.fotoUri}}
+                            source={{url: this.state.url}}
                             style= {styles.image}
                         />
                         <TouchableOpacity onPress={()=> this.usarImagen()}>
