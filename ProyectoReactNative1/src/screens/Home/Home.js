@@ -58,9 +58,8 @@ const styles = StyleSheet.create({
   
   container2:{
     flex:2,
-    flexDirection: 'column',
+    alignItems:'center',
     justifyContent:'space-evenly',
-    alignItems:'center'
   },
   image:{
     height:300

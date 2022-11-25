@@ -63,7 +63,7 @@ class Post extends Component {
       <View>
         <Text style={styles.owner}>{this.props.data.owner}</Text>
         
-        <Text>{this.props.data.descripcion}</Text>
+        <Text>"{this.props.data.descripcion}"</Text>
         <Text>cantidad de comentarios: {this.state.commentCount}</Text>
       <View style={styles.likes}>
         <Text>cantidad de likes: {this.state.likesCount}</Text>  

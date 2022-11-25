@@ -77,7 +77,7 @@ class Camara extends Component {
                             ref={metodosDeCamara => this.metodosDeCamara = metodosDeCamara}
                         />
                         <TouchableOpacity onPress={ () => this.sacarFoto()}>
-                            <Text>Sacar Foto</Text>
+                            <Text style={styles.buttons}>Sacar Foto</Text>
 
                         </TouchableOpacity>
                     </> 
@@ -127,7 +127,18 @@ const styles = StyleSheet.create({
     image :{
         height: 200
 
-    }
+    },
+    buttons:{
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius:6,
+        borderWidth:2,
+        padding:8,
+        backgroundColor: 'grey',
+        textAlign:'center',
+        marginLeft: '40%',
+        marginRight: '40%'
+      },
 })
 
 export default Camara
