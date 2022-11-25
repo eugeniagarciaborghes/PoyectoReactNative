@@ -6,7 +6,7 @@ import Posts from '../screens/Posts/Posts'
 import Perfil from '../screens/Perfil/Perfil'
 import ProfileFriends from '../screens/ProfileFriends/ProfileFriends'
 import UserSearch from '../screens/UserSearch/UserSearch'
-
+import {Ionicons} from '@expo/vector-icons'
 const Tab = createBottomTabNavigator()
 
 export default function TabNavigation() {
@@ -34,12 +34,14 @@ export default function TabNavigation() {
         }}
         />
         <Tab.Screen
-        name='Perfil de Amigos'
-        component={ProfileFriends}
+        name='Buscar Usuarios'
+        component={UserSearch}
         options={{
-            tabBarIcon: () => <FontAwesome name='user' size={32} color='black' />
+            tabBarIcon: () => <Ionicons name='search-sharp' size={32} color='black' />
         }}
         />
+
+
     </Tab.Navigator>
   )
 }
